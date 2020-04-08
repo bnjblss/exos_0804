@@ -6,34 +6,26 @@ def dice_rolling
 end
 
 def roll_action(dice_roll)
-  step = 0
   if dice_roll >= 5
     puts "Vous montez d'une marche !"
-    step += 1
-    return step
+    return 1
   elsif dice_roll == 1
     puts "Vous descendez d'une marche !"
-    step -= 1
-    return step
+    return -1
   else
     puts "Il ne se passe rien"
-    step = 0
-    return step
+    return 0
   end
 end
 
 def step_position(step)
-  i = 0
-  n = 0
-  position = i + step
-  while position == 10
-    n += 1
-    puts position + step
-    roll_action(dice_roll)
-    puts "Coup numéro #{n}"
+  position = 0
+  while position != 10
+    position = position + step
+    puts position
+    step = roll_action(dice_roll)
   end
   puts "Félicitations, tu es sur la marche 10"
-  puts "Cela t'a pris #{n} coups"
 end
 
 def perform
