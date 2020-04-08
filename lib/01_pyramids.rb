@@ -17,33 +17,28 @@ end
 
 def full_pyramid(floor_number)
   i = 1
+  height = floor_number - 1
   puts "Voici ta pyramide :"
   floor_number.times do
-    puts " " * (floor_number - 1) + "#" * (i)
+    puts " " * (height) + "#" * (i)
     i += 2
-    floor_number -= 1
+    height -= 1
   end
 end
-
 
 def wtf_pyramid(floor_number)
+  full_pyramid(floor_number)
   i = 1
-  puts "Voici ta pyramide :"
+  height = floor_number - 2
 
   floor_number.times do
-    puts " " * (floor_number - 1) + "#" * (i)
-    i += 2
-    floor_number -= 1
+    puts " " * (i) + "#" * (height)
+    i += 1
+    height -= 1
   end
-
-  until floor_number == 1
-    i = 1
-    puts " " * (i) + "#" * floor_number
-    i +=1
-    floor_number -= 1
-  end
-
 end
+
+
 
 def perform
   floor_number = ask_pyramid
